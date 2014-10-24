@@ -16,33 +16,38 @@ to facilitate collaboration and promote reproducibility.
 
 ### How to use this package:
 
+You can install the package using `devtools::install_github("Pakillo/template")`, but you don't need to install to use it as a template. I outline the basic steps below. It is important to check that at least `knitr`, `rmarkdown` and `devtools` are properly installed to run the whole workflow. 
+
 
 1. In RStudio, create new project from version control (clone Git repository). The repository url is `https://github.com/Pakillo/template`. Choose your project name and folder location.
 
-2. Update `DESCRIPTION` file and `template-package.R` with the name and info of your research project.
+2. If you want to use [`packrat`](http://rstudio.github.io/packrat/) to ensure that your results 
+will be reproducible in the future, or stop using git for version control, go to Project options in RStudio.
 
-3. Place original (raw) data (e.g. in csv or txt format) in `inst/extdata`.
+3. Update `DESCRIPTION` file and `template-package.R` with the name and info of your research project.  
 
-4. If you write custom functions for the analyses, place them in `R` folder. 
+4. Place original (raw) data (e.g. in csv or txt format) in `inst/extdata`.
+
+5. If you write custom functions for the analyses, place them in `R` folder. 
 Document all your functions with `roxygen` (see http://r-pkgs.had.co.nz/man.html). 
 Write tests for your functions (see http://r-pkgs.had.co.nz/tests.html) and place them in `tests` folder.
 
-5. Save all R scripts used for data preparation in the `data-raw` folder.
+6. Save all R scripts used for data preparation in the `data-raw` folder.
 
-6. Save final (clean, tidy) datasets in `.rda` format (using `save`) in the `data` folder.
+7. Save final (clean, tidy) datasets in `.rda` format (using `save`) in the `data` folder.
 Write documentation for these data following the template in `R/dataset.R`. See http://r-pkgs.had.co.nz/data.html#documenting-data.
 
-7. Choose an Rmarkdown template (e.g. from [rmdTemplates](https://github.com/Pakillo/rmdTemplates) or [rticles](https://github.com/rstudio/rticles)) or create your own Rmd document and place it in the `vignettes` folder. Remember that this Rmd document must include info about knitr as the vignette engine, i.e. this bit:  
+8. Choose an Rmarkdown template (e.g. from [rmdTemplates](https://github.com/Pakillo/rmdTemplates) or [rticles](https://github.com/rstudio/rticles)) or create your own Rmd document and place it in the `vignettes` folder. Remember that this Rmd document must include info about knitr as the vignette engine, i.e. this bit:  
 +<!--  
 +%\VignetteEngine{knitr}  
 +%\VignetteIndexEntry{Vignette title}  
 +-->
 
-8. Press the Knit button or use devtools::build_vignettes() to render the report.
+9. Press the Knit button or use devtools::build_vignettes() to render the report.
 
-9. Use RStudio `Build` menu to create/update documentation, run tests, build package, etc.
+10. Use RStudio `Build` menu to create/update documentation, run tests, build package, etc.
 
-10. Distribute the package.
+11. Distribute the package.
 
 
 
