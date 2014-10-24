@@ -14,15 +14,14 @@ and manuscripts reporting results) contained in the same package
 to facilitate collaboration and promote reproducibility.
 
 
-### How to use this package:
+### How to use this template:
 
-You can install the package using `devtools::install_github("Pakillo/template")`, but you don't need to install to use it as a template. I outline the basic steps below. It is important to check that at least `knitr`, `rmarkdown` and `devtools` are properly installed to run the whole workflow. 
+You can install the package using `devtools::install_github("Pakillo/template", dependencies = TRUE)`, but it is not required if using this simply as a template for new projects. It is important, however, to check that at least `knitr`, `rmarkdown` and `devtools` are properly installed to run the whole workflow. I outline the basic steps below:
 
 
 1. In RStudio, create new project from version control (clone Git repository). The repository url is `https://github.com/Pakillo/template`. Choose your project name and folder location.
 
-2. If you want to use [`packrat`](http://rstudio.github.io/packrat/) to ensure that your results 
-will be reproducible in the future, or stop using git for version control, go to Project options in RStudio.
+2. If you want to stop using git for version control, or use [`packrat`](http://rstudio.github.io/packrat/) to ensure that your results will be reproducible in the future, go to Project options in RStudio. 
 
 3. Update `DESCRIPTION` file and `template-package.R` with the name and info of your research project.  
 
@@ -31,6 +30,7 @@ will be reproducible in the future, or stop using git for version control, go to
 5. If you write custom functions for the analyses, place them in `R` folder. 
 Document all your functions with `roxygen` (see http://r-pkgs.had.co.nz/man.html). 
 Write tests for your functions (see http://r-pkgs.had.co.nz/tests.html) and place them in `tests` folder.
+If your analysis uses functions from other CRAN packages, remember to include them in `Imports` in the `DESCRIPTION` file.
 
 6. Save all R scripts used for data preparation in the `data-raw` folder.
 
@@ -41,7 +41,7 @@ Write documentation for these data following the template in `R/dataset.R`. See 
 +<!--  
 +%\VignetteEngine{knitr}  
 +%\VignetteIndexEntry{Vignette title}  
-+-->
++-->  
 
 9. Press the Knit button or use devtools::build_vignettes() to render the report.
 
