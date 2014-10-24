@@ -1,6 +1,6 @@
 Package: template
 Title: Generic template for research projects structured as R packages.
-Version: 0.2-2
+Version: 0.2-3
 Authors@R: "Francisco Rodriguez-Sanchez <f.rodriguez.sanc@gmail.com> [aut, cre]"
 Description: This package works as a template for new research
     projects, under the idea of having everything (data, R scripts, functions
@@ -13,11 +13,11 @@ LazyData: true
 URL: https://github.com/Pakillo/template
 BugReports: https://github.com/Pakillo/template/issues
 VignetteBuilder: knitr
-Suggests:
+Imports:
     knitr (>= 1.5),
-    knitcitations (>= 0.6),
     rmarkdown,
-    devtools,
-    roxygen2,
+    devtools
+Suggests:
+    knitcitations (>= 0.6),
     testthat,
     rmdTemplates
