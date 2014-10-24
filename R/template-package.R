@@ -5,7 +5,7 @@
 #' under the idea of having everything (data, R scripts, functions and manuscripts)
 #' contained in the same package to promote reproducibility.
 #'
-#' @name template
+#' @name template-package
 #' @docType package
 #' @author Francisco Rodriguez-Sanchez
 #' @keywords package
