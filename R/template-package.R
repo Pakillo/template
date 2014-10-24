@@ -9,6 +9,6 @@
 #' @docType package
 #' @author Francisco Rodriguez-Sanchez
 #' @keywords package
-#' @seealso For detailed steps on how to use the package see \url{https://github.com/Pakillo/template/blob/master/README.md}.
+#' @details For detailed steps on how to use the package see \url{https://github.com/Pakillo/template/blob/master/README.md}.
 #'
 NULL

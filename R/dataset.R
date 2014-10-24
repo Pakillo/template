@@ -7,7 +7,6 @@
 #'
 #' @docType data
 #' @name exampledataset
-#' @aliases dataset
 #' @format A numeric vector.
 #' @source This example modified from C. Boettiger's template package \url{https://github.com/cboettig/template}.
 #' @examples
