@@ -4,7 +4,8 @@
 
 [Rmarkdown](http://rmarkdown.rstudio.com/index.html) documents are great to keep 
 reproducible scientific workflows, tightly integrating code, results and reporting. 
-Rmarkdown documents can even [include embedded data](http://bayesfactor.blogspot.com.es/2014/09/embedding-rdata-files-in-rmarkdown.html). I keep a collection of Rmarkdown templates [here](https://github.com/Pakillo/rmdTemplates).
+Reports created with Rmarkdown can even [include embedded data](http://bayesfactor.blogspot.com.es/2014/09/embedding-rdata-files-in-rmarkdown.html) or [the Rmarkdown source code](http://rpubs.com/ramnathv/including_rmd_source). I keep a collection of Rmarkdown templates [here](https://github.com/Pakillo/rmdTemplates).
+
 However, once we are dealing with large or several datasets, and writing custom code and functions,
 [the best way to structure our projects is probably in the form of R packages](http://rmflight.github.io/posts/2014/07/analyses_as_packages.html). 
 
