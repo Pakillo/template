@@ -55,6 +55,7 @@ If your analysis uses functions from other CRAN packages, remember to include th
 * Carl Boettiger and his [template package](https://github.com/cboettig/template)
 * Jeff Hollister and his [manuscriptPackage](https://github.com/jhollist/manuscriptPackage)
 * Robert Flight: http://rmflight.github.io/posts/2014/07/analyses_as_packages.html
+* Hadley Wickham: http://r-pkgs.had.co.nz/
 * Developers at Rstudio involved in knitr, rmarkdown, and RStudio itself!
 
 
