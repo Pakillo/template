@@ -22,7 +22,7 @@ You can install the package using `devtools::install_github("Pakillo/template", 
 
 1. In RStudio, create new project from version control (clone Git repository). The repository url is `https://github.com/Pakillo/template`. Choose your project name and folder location.
 
-2. Go to `Project Options` in RStudio and check that everything is right. In `Build Tools`, check `Generate documentation with Roxygen` in all cases (turn on all options). Here you can also stop using `git` for version control, or start using [`packrat`](http://rstudio.github.io/packrat/) (to ensure that your results will be reproducible in the future). If using `git`, remember to change the remote repository (i.e. remove `https://github.com/Pakillo/template` as remote).
+2. Go to `Project Options` in RStudio and check that everything is right. In `Build Tools`, check `Generate documentation with Roxygen` in all cases (turn on all options). Here you can also stop using `git` for version control, or start using [`packrat`](http://rstudio.github.io/packrat/) (to ensure that your results will be reproducible in the future). If using `git`, remember to change the remote repository (i.e. remove `https://github.com/Pakillo/template` as remote). Delete the file `template.Rproj` from the project folder.
 
 3. Update `README.md`, the `DESCRIPTION` file and `template-package.R` with the name and info of your research project.  
 
@@ -32,7 +32,7 @@ You can install the package using `devtools::install_github("Pakillo/template", 
 Write documentation for these data following the template in `R/dataset.R`. See http://r-pkgs.had.co.nz/data.html#documenting-data.
 
 6. If you write custom functions for the analyses, place them in `R` folder. 
-Document all your functions with `roxygen` (see http://r-pkgs.had.co.nz/man.html). 
+Document all your functions with `Roxygen` (see http://r-pkgs.had.co.nz/man.html). 
 Write tests for your functions (see http://r-pkgs.had.co.nz/tests.html) and place them in `tests` folder.
 If your analysis uses functions from other CRAN packages, remember to include them in `Imports` in the `DESCRIPTION` file.
 
