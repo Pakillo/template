@@ -17,14 +17,14 @@ to facilitate collaboration and promote reproducibility.
 
 ### How to use this template:
 
-You can install the package using `devtools::install_github("Pakillo/template", dependencies = TRUE)`, but if using this simply as a template for new projects, installation is not required. It is important, however, to check that at least `knitr`, `rmarkdown` and `devtools` are properly installed to run the whole workflow. I outline the basic steps below:
+You can install the package using `devtools::install_github("Pakillo/template", dependencies = TRUE)`, but installation is not required if using this simply as a template for new projects. It is important, however, to check that at least `knitr`, `rmarkdown` and `devtools` are properly installed to run the whole workflow. I outline the basic steps below:
 
 
 1. In RStudio, create new project from version control (clone Git repository). The repository url is `https://github.com/Pakillo/template`. Choose your project name and folder location.
 
-2. If you want to stop using git for version control, or use [`packrat`](http://rstudio.github.io/packrat/) to ensure that your results will be reproducible in the future, go to Project options in RStudio. 
+2. Go to `Project Options` in RStudio and check that everything is right. In `Build Tools`, check `Generate documentation with Roxygen` in all cases (turn on all options). Here you can also stop using `git` for version control, or start using [`packrat`](http://rstudio.github.io/packrat/) (to ensure that your results will be reproducible in the future). If using `git`, remember to change the remote repository (i.e. remove `https://github.com/Pakillo/template` as remote).
 
-3. Update `DESCRIPTION` file and `template-package.R` with the name and info of your research project.  
+3. Update `README.md`, the `DESCRIPTION` file and `template-package.R` with the name and info of your research project.  
 
 4. Place original (raw) data (e.g. in csv or txt format) in `data-raw`. Save all R scripts used for data preparation in the same `data-raw` folder.
 
