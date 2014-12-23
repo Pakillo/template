@@ -26,7 +26,7 @@ You can install the package using `devtools::install_github("Pakillo/template", 
 
 3. Go to `Project Options` in RStudio and check that everything is right. In `Build Tools`, check `Generate documentation with Roxygen` in all cases (turn on all options). Here you can also stop using `git` for version control, or start using [`packrat`](http://rstudio.github.io/packrat/) (to ensure that your results will be reproducible in the future). 
 
-4. Important: if using `git`, remember to change the remote repository (i.e. remove `https://github.com/Pakillo/template` as remote!). You can do this from the shell, e.g. `git remote set-url origin git@github.com:your_username/your_project.git`. 
+4. Important: if using `git`, remember to change the remote repository (i.e. remove `https://github.com/Pakillo/template` as remote!). You can do this from the shell, e.g. `git remote set-url origin git@github.com:your_username/your_project.git`. Just substitute 'your_project.git' by the name of your new GitHub repository.
 
 5. Update `README.md`, the `DESCRIPTION` file and `template-package.R` with the name and info of your research project.  
 
