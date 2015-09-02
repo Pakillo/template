@@ -30,23 +30,21 @@ You can install the package using `devtools::install_github("Pakillo/template", 
 
 5. Place original (raw) data (e.g. in csv or txt format) in `data-raw`. Save all R scripts used for data preparation in the same `data-raw` folder.
 
-6. Save final (clean, tidy) datasets in `.rda` format (using `save`) in the `data` folder.
+6. Save final (clean, tidy) datasets in `.rda` format (using `save` or `saveRDS`) in the `data` folder.
 Write documentation for these data following the template in `R/dataset.R` (see http://r-pkgs.had.co.nz/data.html#documenting-data). If you would like to keep a copy of the clean data in 'plain-text' format (e.g. txt, csv) (more accesible outside R) you can place them in `inst/extdata`.
 
-7. If you write custom functions for the analyses, place them in `R` folder. 
+7. Analyse the data using Rmarkdown documents stored in the `analyses` folder.
+
+8. If you write custom functions for the analyses, place them in `R` folder. 
 Document all your functions with `Roxygen` (see http://r-pkgs.had.co.nz/man.html). 
 Write tests for your functions (see http://r-pkgs.had.co.nz/tests.html) and place them in `tests` folder.
 If your analysis uses functions from other CRAN packages, include these packages in `Imports` in the `DESCRIPTION` file. Also use `@import` or `@importFrom` as `Roxygen` parameters in the function definitions to import these dependencies in the namespace.
 
-8. Choose an Rmarkdown template (e.g. from [rmdTemplates](https://github.com/Pakillo/rmdTemplates) or [rticles](https://github.com/rstudio/rticles)) or create your own Rmd document and place it in the `vignettes` folder. Remember that this Rmd document must mention knitr as the vignette engine, i.e. include this bit:  
-+<!--  
-+%\VignetteEngine{knitr}  
-+%\VignetteIndexEntry{Vignette title}  
-+-->  
+9. For the final manuscript/report, choose an Rmarkdown template (e.g. from [rmdTemplates](https://github.com/Pakillo/rmdTemplates) or [rticles](https://github.com/rstudio/rticles)) or create your own Rmd document and place it in the `manuscript` folder. 
 
-9. Press the `Knit` button or use `devtools::build_vignettes()` to render the report.
+10. Press the `Knit` button or use `rmarkdown::render` to render the report.
 
-10. Use RStudio `Build` menu to create/update documentation, run tests, build package, etc.
+11. Use RStudio `Build` menu to create/update documentation, run tests, build package, etc.
 
 
 
@@ -60,4 +58,10 @@ If your analysis uses functions from other CRAN packages, include these packages
 * Yihui Xie: http://yihui.name/knitr/
 * Developers at Rstudio involved in knitr, rmarkdown, and RStudio itself!
 
+
+### Links
+
+* https://github.com/ropensci/rrrpkg
+* https://github.com/Reproducible-Science-Curriculum/rr-init
+* http://ropensci.github.io/reproducibility-guide/
 

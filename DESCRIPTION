@@ -1,6 +1,6 @@
 Package: template
 Title: Generic template for research projects structured as R packages.
-Version: 0.2-4
+Version: 0.3
 Authors@R: "Francisco Rodriguez-Sanchez <f.rodriguez.sanc@gmail.com> [aut, cre]"
 Description: This package works as a template for new research
     projects, under the idea of having everything (data, R scripts, functions
