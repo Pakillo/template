@@ -4,3 +4,5 @@
 ^analyses$
 ^manuscript$
 ^\.travis\.yml$
+README.Rmd
+

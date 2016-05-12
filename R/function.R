@@ -11,5 +11,5 @@
 #' examplefunction('Hello world!')
 
 examplefunction <- function(text){
-  cat(text)
+  return(text)
 }
