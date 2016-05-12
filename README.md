@@ -2,6 +2,8 @@
 
 ### Generic template for research projects structured as R packages.
 
+[![Travis-CI Build Status](https://travis-ci.org/Pakillo/template.svg?branch=master)](https://travis-ci.org/Pakillo/template)
+
 [Rmarkdown](http://rmarkdown.rstudio.com/index.html) documents are great to keep 
 reproducible scientific workflows, tightly integrating code, results and text. 
 Reports created with Rmarkdown can even [include embedded data](http://bayesfactor.blogspot.com.es/2014/09/embedding-rdata-files-in-rmarkdown.html) or [the Rmarkdown source code itself](http://rpubs.com/ramnathv/including_rmd_source). I keep a collection of Rmarkdown templates [here](https://github.com/Pakillo/rmdTemplates).
