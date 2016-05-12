@@ -20,6 +20,7 @@ new_project <- function(name, github = FALSE, private.repo = TRUE, travis = FALS
   use_data_raw(name)
   use_testthat(name)
 
+  dir.create(file.path(name, "data"))
   dir.create(file.path(name, "analyses"))
   dir.create(file.path(name, "manuscript"))
   cat("\n^analyses$ \n^manuscript$ \n", sep = "",

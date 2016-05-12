@@ -1,69 +1,79 @@
-## `template` package
+
+`template` package
+------------------
 
 ### Generic template for research projects structured as R packages.
 
 [![Travis-CI Build Status](https://travis-ci.org/Pakillo/template.svg?branch=master)](https://travis-ci.org/Pakillo/template)
 
-[Rmarkdown](http://rmarkdown.rstudio.com/index.html) documents are great to keep 
-reproducible scientific workflows, tightly integrating code, results and text. 
-Reports created with Rmarkdown can even [include embedded data](http://bayesfactor.blogspot.com.es/2014/09/embedding-rdata-files-in-rmarkdown.html) or [the Rmarkdown source code itself](http://rpubs.com/ramnathv/including_rmd_source). I keep a collection of Rmarkdown templates [here](https://github.com/Pakillo/rmdTemplates).
+[Rmarkdown](http://rmarkdown.rstudio.com/index.html) documents are great to keep reproducible scientific workflows, tightly integrating code, results and text. I keep a collection of Rmarkdown templates (including some for writing scientific articles, or manuscript reviews) [here](https://github.com/Pakillo/rmdTemplates).
 
-However, once we are dealing with large or several datasets, and writing custom code and functions,
-[the best way to structure our projects is probably in the form of R packages](http://rmflight.github.io/posts/2014/07/analyses_as_packages.html). 
+Once we are dealing with more complicated data analysis, and writing custom code and functions for a research project, structuring our project as an [R package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see [here](http://rmflight.github.io/posts/2014/07/analyses_as_packages.html) and [here](https://github.com/ropensci/rrrpkg)).
 
-Hence this package works as a template for new research projects, 
-with the idea of having everything (data, R scripts, functions
-and manuscripts reporting results) contained in the same package 
-to facilitate collaboration and promote reproducibility.
+Hence this package works as a template for new research projects, with the idea of having everything (data, R scripts, functions and manuscripts reporting results) self-contained in the same package (a "research compendium") to facilitate collaboration and promote reproducibility.
 
+### Installation
 
-### How to use this template:
+``` r
+library("devtools")
+install_github("Pakillo/template")
+```
 
-You can install the package using `devtools::install_github("Pakillo/template", dependencies = TRUE)`, but installation is not required if using this simply as a template for new projects. It is important, however, to check that at least `knitr`, `rmarkdown` and `devtools` are properly installed to run the whole workflow. I outline the basic steps below:
+### Usage
 
+1.  First, load the package
 
-1. In RStudio, create new project from version control (clone Git repository). The repository url is `https://github.com/Pakillo/template`. Choose your project name and folder location.
+``` r
+library("template")
+```
 
-2. Go to `Project Options` in RStudio and check that everything is right. In `Build Tools`, check `Generate documentation with Roxygen` in all cases (turn on all options). Here you can also stop using `git` for version control, or start using [`packrat`](http://rstudio.github.io/packrat/) (to ensure that your results will be reproducible in the future). If you want to start with a clean `git` record, just delete the `.git` folder in your computer. Then you will have to add to `git` all the files you would like to track.
+1.  Now run the function `new_project` to create a directory with all the scaffolding (slightly modified from R package structure). For example, to start a new project about tree growth, just use:
 
-3. Important: if using `git`, remember to change the remote repository (i.e. remove `https://github.com/Pakillo/template` as remote!). You can do this from the shell: `git remote set-url origin git@github.com:your_username/your_project.git`. Just substitute `your_username` by your Github username and `your_project.git` by the name of your new GitHub repository.
+``` r
+new_project("treegrowth")
+```
 
-4. Update `README.md`, the `DESCRIPTION` file and `template-package.R` with the name and info of your research project.  
+If you want to create a GitHub repository for the project at the same time, use instead:
 
-5. Place original (raw) data (e.g. in csv or txt format) in `data-raw`. Save all R scripts used for data preparation in the same `data-raw` folder.
+``` r
+new_project("treegrowth", github = TRUE, private.repo = FALSE, travis = TRUE)
+```
 
-6. Save final (clean, tidy) datasets in `.rda` format (using `save` or `saveRDS`) in the `data` folder.
-Write documentation for these data following the template in `R/dataset.R` (see http://r-pkgs.had.co.nz/data.html#documenting-data). If you would like to keep a copy of the clean data in 'plain-text' format (e.g. txt, csv) (more accesible outside R) you can place them in `inst/extdata`.
+This will create a new folder with this structure:
 
-7. Analyse the data using Rmarkdown documents stored in the `analyses` folder.
+![](http://i.imgur.com/4BuMkCc.png?1)
 
-8. If you write custom functions for the analyses, place them in `R` folder. 
-Document all your functions with `Roxygen` (see http://r-pkgs.had.co.nz/man.html). 
-Write tests for your functions (see http://r-pkgs.had.co.nz/tests.html) and place them in `tests` folder.
-If your analysis uses functions from other CRAN packages, include these packages in `Imports` in the `DESCRIPTION` file. Also use `@import` or `@importFrom` as `Roxygen` parameters in the function definitions to import these dependencies in the namespace.
+Note that to create a GitHub repo you will need to have configured your system as explained in <http://www.rdocumentation.org/packages/devtools/functions/use_github>. And for Travis to run you will need to activate it at <https://travis-ci.org/profile>.
 
-9. For the final manuscript/report, choose an Rmarkdown template (e.g. from [rmdTemplates](https://github.com/Pakillo/rmdTemplates) or [rticles](https://github.com/rstudio/rticles)) or create your own Rmd document and place it in the `manuscript` folder. 
+### Developing the project
 
-10. Press the `Knit` button or use `rmarkdown::render` to render the report.
+1.  Now edit `README.Rmd` and the `DESCRIPTION` file with some basic information about your project: title, brief description, licence, package dependencies, etc. You may also check that project options in Rstudio are fine for you.
 
-11. Use RStudio `Build` menu to create/update documentation, run tests, build package, etc.
+2.  Place original (raw) data in `data-raw` folder. Save all R scripts used for data preparation in the same folder.
 
+3.  Save final (clean, tidy) datasets in the `data` folder. You may save them as plain text (txt, csv) or `rda` format (using `save`, `saveRDS` or `devtools::use_data`). You may write documentation for these data (see <http://r-pkgs.had.co.nz/data.html#documenting-data>).
 
+4.  R scripts or Rmarkdown documents used for data analyses may be placed at the `analyses` folder. The final manuscript/report may be placed at the `manuscript` folder. You may want to use an Rmarkdown template from e.g. [rmdTemplates](https://github.com/Pakillo/rmdTemplates) or [rticles](https://github.com/rstudio/rticles).
 
+5.  If your analyses use functions from other CRAN packages, include them as dependencies (`Imports`) in the `DESCRIPTION` file. Also use `Roxygen` `@import` or `@importFrom` in function definitions to import these dependencies in the namespace.
+
+6.  If you write custom functions, place them in the `R` folder. Document all your functions with `Roxygen` (see <http://r-pkgs.had.co.nz/man.html>). Write tests for your functions (see <http://r-pkgs.had.co.nz/tests.html>) and place them in the `tests` folder.
+
+7.  Write a `makefile` or master script to organise and execute all parts of the analysis. Render Rmarkdown reports using `rmarkdown::render`, and use Rstudio `Build` menu to create/update documentation, run tests, build package, etc.
+
+8.  Share.
 
 ### Thanks to:
 
-* Carl Boettiger and his [template package](https://github.com/cboettig/template)
-* Jeff Hollister and his [manuscriptPackage](https://github.com/jhollist/manuscriptPackage)
-* Robert Flight: http://rmflight.github.io/posts/2014/07/analyses_as_packages.html
-* Hadley Wickham: http://r-pkgs.had.co.nz/
-* Yihui Xie: http://yihui.name/knitr/
-* Developers at Rstudio involved in knitr, rmarkdown, and RStudio itself!
-
+-   Carl Boettiger and his [template package](https://github.com/cboettig/template)
+-   Jeff Hollister and his [manuscriptPackage](https://github.com/jhollist/manuscriptPackage)
+-   Robert Flight: <http://rmflight.github.io/posts/2014/07/analyses_as_packages.html>
+-   Hadley Wickham: <http://r-pkgs.had.co.nz/>
+-   Yihui Xie: <http://yihui.name/knitr/>
+-   Rstudio
 
 ### Links
 
-* https://github.com/ropensci/rrrpkg
-* https://github.com/Reproducible-Science-Curriculum/rr-init
-* http://ropensci.github.io/reproducibility-guide/
-
+-   <https://github.com/ropensci/rrrpkg>
+-   <https://github.com/Reproducible-Science-Curriculum/rr-init>
+-   <http://ropensci.github.io/reproducibility-guide/>
