@@ -6,3 +6,6 @@
 ^\.travis\.yml$
 README.Rmd
 
+^slides$
+
+

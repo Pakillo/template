@@ -1,0 +1,62 @@
+
+% Allowing for slides with 2 columns
+\def\begincols{\begin{columns}[c]}
+\def\endcols{\end{columns}}
+\def\begincol{\begin{column}{0.5\textwidth}}
+\def\endcol{\end{column}}
+
+
+
+% Reducing black space between R code and output
+% \setlength{\topsep}{0pt}{}
+\setlength{\emergencystretch}{0em}
+\setlength{\parskip}{2pt}
+\setlength{\partopsep}{1pt}
+
+
+
+
+%%% Reducing font size of R code and output
+%%% code below from http://stackoverflow.com/a/38324868
+%%% see also http://stackoverflow.com/a/39961605
+
+% %% change fontsize of R code
+% \let\oldShaded\Shaded
+% \let\endoldShaded\endShaded
+% \renewenvironment{Shaded}{\footnotesize\oldShaded}{\endoldShaded}
+%
+% %% change fontsize of output
+% \let\oldverbatim\verbatim
+% \let\endoldverbatim\endverbatim
+% \renewenvironment{verbatim}{\footnotesize\oldverbatim}{\endoldverbatim}
+% %%%
+
+
+% code below taken from D. Eddelbuettel
+% https://github.com/eddelbuettel/samples-rmarkdown-metropolis/blob/master/header.tex
+
+%% If you have the Fira font installed, to actually have it used it
+%% via rmarkdown you need to declare it here
+% \setsansfont[ItalicFont={Fira Sans Light Italic},BoldFont={Fira Sans},BoldItalicFont={Fira Sans Italic}]{Fira Sans Light}
+% \setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}
+% FRS: but this seems not able to print equations well...
+
+%% You can set various Metropolis options via \metroset{} here
+%\metroset{....}
+
+%% You can redefine colours, mostly by borrowing from Beamer
+%\setbeamercolor{frametitle}{bg=blue}
+
+%% You also use hyperref, and pick colors
+\hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}
+
+%% when rendered with rmarkdown, somehow the unicode char for the dot
+%% disappears so we redefine it here
+%\renewcommand{\textbullet}{$\cdot$}
+%\renewcommand{\itemBullet}{▸}   % unicode U+25b8 'black right pointing small triangle'
+
+%% The institute macro puts a small line for affiliation at the bottom
+%\institute{Institute of Institutionalism}
+
+%% We can also place a logo
+%\titlegraphic{\hfill\includegraphics[height=1cm]{someLogo.pdf}}
