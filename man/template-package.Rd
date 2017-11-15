@@ -17,4 +17,3 @@ For detailed steps on how to use the package see \url{https://github.com/Pakillo
 Francisco Rodriguez-Sanchez
 }
 \keyword{package}
-

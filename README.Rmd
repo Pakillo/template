@@ -17,6 +17,8 @@ Once we are dealing with more complicated data analysis, and writing custom code
 
 Hence this package works as a template for new research projects, with the idea of having everything (data, R scripts, functions and manuscripts reporting results) self-contained in the same package (a "research compendium") to facilitate collaboration and promote reproducibility.
 
+A short presentation introducing this approach on 'Structuring data analysis projects as R packages' is available here: https://github.com/Pakillo/template/blob/master/slides/Projects_as_Packages.pdf
+
 
 ### Installation
 

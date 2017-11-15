@@ -15,10 +15,9 @@ This is an example showing how to document functions to be included in the packa
 \examples{
 examplefunction('Hello world!')
 }
-\author{
-Francisco Rodriguez-Sanchez
-}
 \seealso{
 \url{http://r-pkgs.had.co.nz/man.html}
 }
-
+\author{
+Francisco Rodriguez-Sanchez
+}

@@ -21,4 +21,3 @@ A new directory with R package structure, slightly modified.
 \description{
 Create all the scaffolding for a new project in a new directory. The scaffolding includes a \code{README.Rmd} file, different folders to hold raw data, analyses, etc, and \code{testthat} infrastructure. Also, optionally, set a GitHub repo and add Travis-CI.
 }
-
