@@ -8,16 +8,17 @@ output: github_document
 
 
 [![Travis-CI Build Status](https://travis-ci.org/Pakillo/template.svg?branch=master)](https://travis-ci.org/Pakillo/template)
+[![HitCount since 2020-06-14](http://hits.dwyl.com/Pakillo/template.svg)](http://hits.dwyl.com/Pakillo/template)
 
 
 [Rmarkdown](http://rmarkdown.rstudio.com/index.html) documents are great to keep 
 reproducible scientific workflows, tightly integrating code, results and text. I keep a collection of Rmarkdown templates (including some for writing scientific articles, or manuscript reviews) [here](https://github.com/Pakillo/rmdTemplates).
 
-Once we are dealing with more complicated data analysis, and writing custom code and functions for a research project, structuring our project as an [R package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see [here](http://rmflight.github.io/posts/2014/07/analyses_as_packages.html) and [here](https://github.com/ropensci/rrrpkg)). 
+Once we are dealing with more complicated data analysis and writing custom code and functions for a research project, structuring our project as an [R package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see [here](http://rmflight.github.io/post/analyses-as-packages/) and [here](https://github.com/ropensci/rrrpkg), or read [Marwick et al.](https://doi.org/10.7287/peerj.preprints.3192v2)). 
 
 Hence this package works as a template for new research projects, with the idea of having everything (data, R scripts, functions and manuscripts reporting results) self-contained in the same package (a "research compendium") to facilitate collaboration and promote reproducibility.
 
-A short presentation introducing this approach on 'Structuring data analysis projects as R packages' is available here: https://github.com/Pakillo/template/blob/master/slides/Projects_as_Packages.pdf
+A short presentation introducing this approach on 'Structuring data analysis projects as R packages' is available here: https://doi.org/10.6084/m9.figshare.12479984.v1
 
 
 ### Installation
