@@ -1,45 +1,76 @@
 
 #' Create new project scaffolding.
 #'
-#' Create all the scaffolding for a new project in a new directory. The scaffolding includes a \code{README.Rmd} file, different folders to hold raw data, analyses, etc, and \code{testthat} infrastructure. Also, optionally, set a GitHub repo and add Travis-CI.
+#' Create all the scaffolding for a new project in a new directory. The scaffolding includes a \code{README.Rmd} file, different folders to hold raw data, analyses, etc, and optionally also \code{testthat} infrastructure. Also, optionally, set a private or public GitHub repo with continnuous integration (Travis-CI, GitHub Actions...).
 #'
-#' @param name Name of the new project. A new folder will be created with that name.
-#' @param github Logical. Create GitHub repo? Note this requires a \code{GITHUB_PAT}. See \code{\link[devtools]{use_github}}.
+#' @param name Character. Name of the new project. Could be a path, e.g. \code{"~/myRcode/newproj"}. A new folder will be created with that name.
+#' @param github Logical. Create GitHub repository? Note this requires some working infrastructure like \code{git} and a \code{GITHUB_PAT}. See instructions here \url{https://usethis.r-lib.org/articles/articles/usethis-setup.html}.
 #' @param private.repo Logical. Default is TRUE.
-#' @param travis Logical. Set Travis? If TRUE, a badge will be added automatically to README.Rmd. But the project will need to be activated at \url{https://travis-ci.org/profile}.
+#' @param ci Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), or "gh-actions" (uses GitHub Actions).
+#' @param pipe Logical. Use magrittr's pipe (%>%) in your package?
+#' @param testthat Logical. Add testthat infrastructure?
+#' @param open.project Logical. If TRUE (the default) will open the newly created Rstudio project in a new session.
 #'
 #' @return A new directory with R package structure, slightly modified.
 #' @export
-#' @import devtools
 #'
-new_project <- function(name, github = FALSE, private.repo = TRUE, travis = FALSE){
+new_project <- function(name,
+                        github = FALSE, private.repo = TRUE, ci = "none",
+                        pipe = TRUE, testthat = FALSE,
+                        open.project = TRUE){
 
-  devtools::create(name)
-  try(use_package_doc(name), silent = TRUE)
-  try(use_readme_rmd(name), silent = TRUE)
-  use_data_raw(name)
-  use_testthat(name)
+  usethis::create_package(name, open = FALSE)
+  usethis::proj_set(name, force = TRUE)
 
+  usethis::use_package_doc(open = FALSE)
+  usethis::use_readme_rmd(open = FALSE)
+  usethis::use_data_raw(open = FALSE)
+
+  if (isTRUE(pipe)) {
+    usethis::use_pipe()
+  }
+
+  if (isTRUE(testthat)) {
+    usethis::use_testthat()
+  }
+
+  # Add folders
   dir.create(file.path(name, "data"))
   dir.create(file.path(name, "analyses"))
   dir.create(file.path(name, "manuscript"))
-  cat("\n^analyses$ \n^manuscript$ \n", sep = "",
-      file = file.path(name, ".Rbuildignore"), append = TRUE)
 
-  if (github){
-    use_github(pkg = name, private = private.repo)
-    use_github_links(name)
 
-    if (travis){
-      use_travis(name)
-      cat("\n\n\n[![Travis-CI Build Status](https://travis-ci.org/",
-          devtools:::github_info(name)$username, "/",
-          name, ".svg?branch=master)](https://travis-ci.org/",
-          devtools:::github_info(name)$username, "/", name, ")",
-          file = file.path(name, "README.Rmd"), sep = "", append = TRUE)
 
+  usethis::use_build_ignore(c("analyses", "manuscript"))
+
+
+  if (isTRUE(github)) {
+    usethis::use_git()
+    usethis::use_github(private = private.repo)
+    # usethis::use_github_links(name)
+
+    ## Continuous integration services
+    stopifnot(ci %in% c("none", "travis", "gh-actions")) # add circle-ci & appveyor
+
+    if (ci == "travis") {
+      usethis::use_travis()
+      usethis::use_travis_badge()
     }
 
+    if (ci == "gh-actions") {
+      usethis::use_github_actions()
+      # usethis::use_github_action_check_release()
+      usethis::use_github_actions_badge()
+
+    }
   }
+
+  # Open Rstudio project in new session at the end?
+  if (isTRUE(open.project)) {
+    if (rstudioapi::isAvailable()) {
+      rstudioapi::openProject(name, newSession = TRUE)
+    }
+  }
+
 
 }
