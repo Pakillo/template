@@ -14,7 +14,7 @@ output: github_document
 [Rmarkdown](https://rmarkdown.rstudio.com) documents are great to keep 
 reproducible scientific workflows: tightly integrating code, results and text. There are hundreds of tutorials and templates out there. I keep a collection of Rmarkdown templates (including some for writing scientific articles, or manuscript reviews) [here](https://github.com/Pakillo/rmdTemplates).
 
-Yet, once we are dealing with more complicated data analysis and writing custom code and functions for a project, structuring it as an [R package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see [here](http://rmflight.github.io/post/analyses-as-packages/) and [here](https://github.com/ropensci/rrrpkg), or read [Marwick et al.](https://doi.org/10.7287/peerj.preprints.3192v2)). 
+Yet, once we are dealing with more complicated data analysis and writing custom code and functions for a project, structuring it as an [R package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see [here](http://rmflight.github.io/post/analyses-as-packages/) and [here](https://github.com/ropensci/rrrpkg), or read [Marwick et al.](https://doi.org/10.7287/peerj.preprints.3192v2), but see also [here](https://milesmcbain.xyz/posts/an-okay-idea/) for counterpoints). 
 
 Hence this package works as a template for new research or data analysis projects, with the idea of having everything (data, R scripts, functions, and manuscript reporting results) self-contained in the same package (a "research compendium") to facilitate collaboration and promote reproducibility.
 

@@ -1,32 +1,33 @@
 
 ## `template` package
 
-### Generic template for research projects structured as R packages.
+### Generic template for research or data analysis projects structured as R packages.
 
 [![Travis-CI Build
 Status](https://travis-ci.org/Pakillo/template.svg?branch=master)](https://travis-ci.org/Pakillo/template)
 [![HitCount
 since 2020-06-14](http://hits.dwyl.com/Pakillo/template.svg)](http://hits.dwyl.com/Pakillo/template)
 
-[Rmarkdown](http://rmarkdown.rstudio.com/index.html) documents are great
-to keep reproducible scientific workflows, tightly integrating code,
-results and text. I keep a collection of Rmarkdown templates (including
-some for writing scientific articles, or manuscript reviews)
+[Rmarkdown](https://rmarkdown.rstudio.com) documents are great to keep
+reproducible scientific workflows: tightly integrating code, results and
+text. There are hundreds of tutorials and templates out there. I keep a
+collection of Rmarkdown templates (including some for writing scientific
+articles, or manuscript reviews)
 [here](https://github.com/Pakillo/rmdTemplates).
 
-Once we are dealing with more complicated data analysis and writing
-custom code and functions for a research project, structuring our
-project as an [R package](http://r-pkgs.had.co.nz/) can bring many
-advantages (e.g. see
+Yet, once we are dealing with more complicated data analysis and writing
+custom code and functions for a project, structuring it as an [R
+package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see
 [here](http://rmflight.github.io/post/analyses-as-packages/) and
 [here](https://github.com/ropensci/rrrpkg), or read [Marwick et
-al.](https://doi.org/10.7287/peerj.preprints.3192v2)).
+al.](https://doi.org/10.7287/peerj.preprints.3192v2), but see also
+[here](https://milesmcbain.xyz/posts/an-okay-idea/) for counterpoints).
 
-Hence this package works as a template for new research projects, with
-the idea of having everything (data, R scripts, functions and
-manuscripts reporting results) self-contained in the same package (a
-“research compendium”) to facilitate collaboration and promote
-reproducibility.
+Hence this package works as a template for new research or data analysis
+projects, with the idea of having everything (data, R scripts,
+functions, and manuscript reporting results) self-contained in the same
+package (a “research compendium”) to facilitate collaboration and
+promote reproducibility.
 
 A short presentation introducing this approach on ‘Structuring data
 analysis projects as R packages’ is available here:
@@ -35,8 +36,8 @@ analysis projects as R packages’ is available here:
 ### Installation
 
 ``` r
-library("devtools")
-install_github("Pakillo/template")
+# install.packages("remotes")
+remotes::install_github("Pakillo/template")
 ```
 
 ### Usage
@@ -63,59 +64,77 @@ If you want to create a GitHub repository for the project at the same
 time, use instead:
 
 ``` r
-new_project("treegrowth", github = TRUE, private.repo = FALSE, travis = TRUE)
+new_project("treegrowth", github = TRUE, private.repo = FALSE)
 ```
 
-This will create a new folder with this structure:
+You could choose either public or private repository. Note that to
+create a GitHub repo you will need to have configured your system as
+explained in
+<https://usethis.r-lib.org/articles/articles/usethis-setup.html>.
 
-![](http://i.imgur.com/4BuMkCc.png?1)
-
-Note that to create a GitHub repo you will need to have configured your
-system as explained in
-<http://www.rdocumentation.org/packages/devtools/functions/use_github>.
-And for Travis to run you will need to activate it at
-<https://travis-ci.org/profile>.
+There are other options you could choose, like setting up `testthat` or
+continuous integration (Travis-CI, GitHub actions…). See `?new_project`
+for all options.
 
 ### Developing the project
 
 3.  Now edit `README.Rmd` and the `DESCRIPTION` file with some basic
     information about your project: title, brief description, licence,
-    package dependencies, etc. You may also check that project options
-    in Rstudio are fine for you.
+    package dependencies, etc.
 
 4.  Place original (raw) data in `data-raw` folder. Save all R scripts
-    used for data preparation in the same folder.
+    (or Rmarkdown documents) used for data preparation in the same
+    folder.
 
-5.  Save final (clean, tidy) datasets in the `data` folder. You may save
-    them as plain text (txt, csv) or `rda` format (using `save`,
-    `saveRDS` or `devtools::use_data`). You may write documentation for
-    these data (see
+5.  Save final (clean, tidy) datasets in the `data` folder. You may
+    write documentation for these data (see
     <http://r-pkgs.had.co.nz/data.html#documenting-data>).
 
 6.  R scripts or Rmarkdown documents used for data analyses may be
     placed at the `analyses` folder. The final manuscript/report may be
-    placed at the `manuscript` folder. You may want to use an Rmarkdown
-    template from
-    e.g. [rmdTemplates](https://github.com/Pakillo/rmdTemplates) or
-    [rticles](https://github.com/rstudio/rticles).
+    placed at the `manuscript` folder. You could use one of the many
+    Rmarkdown templates available out there
+    (e.g. [rticles](https://github.com/rstudio/rticles),
+    [rrtools](https://github.com/benmarwick/rrtools) or
+    [rmdTemplates](https://github.com/Pakillo/rmdTemplates)).
 
-7.  If your analyses use functions from other CRAN packages, include
-    them as dependencies (`Imports`) in the `DESCRIPTION` file. Also use
-    `Roxygen` `@import` or `@importFrom` in function definitions to
-    import these dependencies in the namespace.
-
-8.  If you write custom functions, place them in the `R` folder.
+7.  If you write custom functions, place them in the `R` folder.
     Document all your functions with `Roxygen` (see
     <http://r-pkgs.had.co.nz/man.html>). Write tests for your functions
     (see <http://r-pkgs.had.co.nz/tests.html>) and place them in the
     `tests` folder.
 
-9.  Write a `makefile` or master script to organise and execute all
-    parts of the analysis. Render Rmarkdown reports using
-    `rmarkdown::render`, and use Rstudio `Build` menu to create/update
-    documentation, run tests, build package, etc.
+8.  If your analyses use functions from other CRAN packages, include
+    these as dependencies (`Imports`) in the `DESCRIPTION` file
+    (e.g. using `usethis::use_package()` or
+    `rrtools::add_dependencies_to_description()`. Also, use `Roxygen`
+    `@import` or `@importFrom` in your function definitions, or
+    alternatively `package::function()`, to import these dependencies in
+    the namespace.
 
-10. Share.
+9.  I recommend using an advanced tool like
+    [`drake`](https://github.com/ropensci/drake) or
+    [`targets`](https://github.com/wlandau/targets) to manage your
+    project workflow. A simpler alternative might be writing a
+    `makefile` or master script to organise and execute all parts of the
+    analysis. A template makefile is included with this package (use
+    `makefile = TRUE` when calling `new_project`).
+
+10. Render Rmarkdown reports using `rmarkdown::render`, and use Rstudio
+    `Build` menu to create/update documentation, run tests, build
+    package, etc.
+
+11. Record the exact dependencies of your project. One option is simply
+    running `sessionInfo()` but many, more sophisticated and also
+    better, alternatives exist. For example,
+    `automagic::make_deps_file()` or `renv::snapshot()` will create a
+    file recording the exact versions of all packages used, which can be
+    used to recreate such environment in the future or in another
+    computer. If you want to use Docker, you could use
+    e.g. `containerit::dockerfile()` or `rrtools::use_dockerfile()`.
+
+12. Archive your repository (e.g. in Zenodo), get a DOI, and include
+    citation information in your README.
 
 ### Thanks to:
 
@@ -134,3 +153,5 @@ And for Travis to run you will need to activate it at
   - <https://github.com/ropensci/rrrpkg>
   - <https://github.com/Reproducible-Science-Curriculum/rr-init>
   - <http://ropensci.github.io/reproducibility-guide/>
+  - <https://github.com/jdblischak/r-project-workflows>
+  - <https://github.com/benmarwick/rrtools>
