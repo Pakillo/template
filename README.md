@@ -1,7 +1,7 @@
 
 ## `template` package
 
-### Generic template for research or data analysis projects structured as R packages.
+### Generic template for research or data analysis projects structured as R packages
 
 [![Travis-CI Build
 Status](https://travis-ci.org/Pakillo/template.svg?branch=master)](https://travis-ci.org/Pakillo/template)
@@ -10,13 +10,8 @@ since 2020-06-14](http://hits.dwyl.com/Pakillo/template.svg)](http://hits.dwyl.c
 
 [Rmarkdown](https://rmarkdown.rstudio.com) documents are great to keep
 reproducible scientific workflows: tightly integrating code, results and
-text. There are hundreds of tutorials and templates out there. I keep a
-collection of Rmarkdown templates (including some for writing scientific
-articles, or manuscript reviews)
-[here](https://github.com/Pakillo/rmdTemplates).
-
-Yet, once we are dealing with more complicated data analysis and writing
-custom code and functions for a project, structuring it as an [R
+text. Yet, once we are dealing with more complicated data analysis and
+writing custom code and functions for a project, structuring it as an [R
 package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see
 [here](http://rmflight.github.io/post/analyses-as-packages/) and
 [here](https://github.com/ropensci/rrrpkg), or read [Marwick et
@@ -42,19 +37,15 @@ remotes::install_github("Pakillo/template")
 
 ### Usage
 
-1.  First, load the package
-
-<!-- end list -->
+First, load the package:
 
 ``` r
 library("template")
 ```
 
-2.  Now run the function `new_project` to create a directory with all
-    the scaffolding (slightly modified from R package structure). For
-    example, to start a new project about tree growth, just use:
-
-<!-- end list -->
+Now run the function `new_project` to create a directory with all the
+scaffolding (slightly modified from R package structure). For example,
+to start a new project about tree growth, just use:
 
 ``` r
 new_project("treegrowth")
@@ -78,19 +69,20 @@ for all options.
 
 ### Developing the project
 
-3.  Now edit `README.Rmd` and the `DESCRIPTION` file with some basic
+1.  Now edit `README.Rmd` and the `DESCRIPTION` file with some basic
     information about your project: title, brief description, licence,
     package dependencies, etc.
 
-4.  Place original (raw) data in `data-raw` folder. Save all R scripts
+2.  Place original (raw) data in `data-raw` folder. Save all R scripts
     (or Rmarkdown documents) used for data preparation in the same
     folder.
 
-5.  Save final (clean, tidy) datasets in the `data` folder. You may
-    write documentation for these data (see
-    <http://r-pkgs.had.co.nz/data.html#documenting-data>).
+3.  Save final (clean, tidy) datasets in the `data` folder. You may
+    write
+    [documentation](http://r-pkgs.had.co.nz/data.html#documenting-data)
+    for these data.
 
-6.  R scripts or Rmarkdown documents used for data analyses may be
+4.  R scripts or Rmarkdown documents used for data analyses may be
     placed at the `analyses` folder. The final manuscript/report may be
     placed at the `manuscript` folder. You could use one of the many
     Rmarkdown templates available out there
@@ -98,13 +90,12 @@ for all options.
     [rrtools](https://github.com/benmarwick/rrtools) or
     [rmdTemplates](https://github.com/Pakillo/rmdTemplates)).
 
-7.  If you write custom functions, place them in the `R` folder.
-    Document all your functions with `Roxygen` (see
-    <http://r-pkgs.had.co.nz/man.html>). Write tests for your functions
-    (see <http://r-pkgs.had.co.nz/tests.html>) and place them in the
-    `tests` folder.
+5.  If you write custom functions, place them in the `R` folder.
+    [Document](http://r-pkgs.had.co.nz/man.html) all your functions with
+    `Roxygen`. [Write tests](http://r-pkgs.had.co.nz/tests.html) for
+    your functions and place them in the `tests` folder.
 
-8.  If your analyses use functions from other CRAN packages, include
+6.  If your analysis uses functions from other CRAN packages, include
     these as dependencies (`Imports`) in the `DESCRIPTION` file
     (e.g. using `usethis::use_package()` or
     `rrtools::add_dependencies_to_description()`. Also, use `Roxygen`
@@ -112,7 +103,7 @@ for all options.
     alternatively `package::function()`, to import these dependencies in
     the namespace.
 
-9.  I recommend using an advanced tool like
+7.  I recommend using an advanced tool like
     [`drake`](https://github.com/ropensci/drake) or
     [`targets`](https://github.com/wlandau/targets) to manage your
     project workflow. A simpler alternative might be writing a
@@ -120,20 +111,20 @@ for all options.
     analysis. A template makefile is included with this package (use
     `makefile = TRUE` when calling `new_project`).
 
-10. Render Rmarkdown reports using `rmarkdown::render`, and use Rstudio
+8.  Render Rmarkdown reports using `rmarkdown::render`, and use Rstudio
     `Build` menu to create/update documentation, run tests, build
     package, etc.
 
-11. Record the exact dependencies of your project. One option is simply
-    running `sessionInfo()` but many, more sophisticated and also
-    better, alternatives exist. For example,
-    `automagic::make_deps_file()` or `renv::snapshot()` will create a
-    file recording the exact versions of all packages used, which can be
-    used to recreate such environment in the future or in another
-    computer. If you want to use Docker, you could use
-    e.g. `containerit::dockerfile()` or `rrtools::use_dockerfile()`.
+9.  Record the exact dependencies of your project. One option is simply
+    running `sessionInfo()` but many more sophisticated alternatives
+    exist. For example, `automagic::make_deps_file()` or
+    `renv::snapshot()` will create a file recording the exact versions
+    of all packages used, which can be used to recreate such environment
+    in the future or in another computer. If you want to use Docker, you
+    could use e.g. `containerit::dockerfile()` or
+    `rrtools::use_dockerfile()`.
 
-12. Archive your repository (e.g. in Zenodo), get a DOI, and include
+10. Archive your repository (e.g. in Zenodo), get a DOI, and include
     citation information in your README.
 
 ### Thanks to:

@@ -9,3 +9,6 @@ README.Rmd
 ^slides$
 
 
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
