@@ -5,7 +5,4 @@ warnings_are_errors: false
 sudo: false
 cache: packages
 
-r_github_packages:
-  - Pakillo/rmdTemplates
-
 
