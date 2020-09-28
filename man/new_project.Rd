@@ -36,7 +36,7 @@ new_project(
 A new directory with R package structure, slightly modified.
 }
 \description{
-Create all the scaffolding for a new project in a new directory. The scaffolding includes a \code{README.Rmd} file, different folders to hold raw data, analyses, etc, and optionally also \code{testthat} infrastructure. Also, optionally, set a private or public GitHub repo with continnuous integration (Travis-CI, GitHub Actions...).
+Create all the scaffolding for a new project in a new directory. The scaffolding includes a README file, different folders to hold raw data, analyses, etc, and optionally also \code{testthat} infrastructure. Also, optionally, set a private or public GitHub repo with continuous integration (Travis-CI, GitHub Actions...).
 }
 \details{
 If using github = TRUE, you will be asked if you want to commit some files. Reply positively to continue.
