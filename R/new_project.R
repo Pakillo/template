@@ -6,7 +6,7 @@
 #' @param name Character. Name of the new project. Could be a path, e.g. \code{"~/myRcode/newproj"}. A new folder will be created with that name.
 #' @param github Logical. Create GitHub repository? Note this requires some working infrastructure like \code{git} and a \code{GITHUB_PAT}. See instructions here \url{https://usethis.r-lib.org/articles/articles/usethis-setup.html}.
 #' @param private.repo Logical. Default is TRUE.
-#' @param ci Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), or "gh-actions" (uses GitHub Actions).
+#' @param ci Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), "circle" (uses Circle-CI), "appveyor" (uses AppVeyor), or "gh-actions" (uses GitHub Actions).
 #' @param makefile Logical. If TRUE, adds a template \code{makefile.R} file to the project.
 #' @param pipe Logical. Use magrittr's pipe in your package?
 #' @param testthat Logical. Add testthat infrastructure?
@@ -63,19 +63,27 @@ new_project <- function(name,
     # usethis::use_github_links(name)
 
     ## Continuous integration services
-    stopifnot(ci %in% c("none", "travis", "gh-actions")) # add circle-ci & appveyor
+    stopifnot(ci %in% c("none", "travis", "gh-actions", "circle", "appveyor"))
 
     if (ci == "travis") {
       usethis::use_travis()
-      usethis::use_travis_badge()
+      #usethis::use_travis_badge()
     }
 
     if (ci == "gh-actions") {
       usethis::use_github_actions()
       # usethis::use_github_action_check_release()
-      usethis::use_github_actions_badge()
-
+      #usethis::use_github_actions_badge()
     }
+
+    if (ci == "circle") {
+      usethis::use_circleci()
+    }
+
+    if (ci == "appveyor") {
+      usethis::use_appveyor()
+    }
+
   }
 
   # Open Rstudio project in new session at the end?

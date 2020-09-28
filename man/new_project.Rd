@@ -22,7 +22,7 @@ new_project(
 
 \item{private.repo}{Logical. Default is TRUE.}
 
-\item{ci}{Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), or "gh-actions" (uses GitHub Actions).}
+\item{ci}{Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), "circle" (uses Circle-CI), "appveyor" (uses AppVeyor), or "gh-actions" (uses GitHub Actions).}
 
 \item{makefile}{Logical. If TRUE, adds a template \code{makefile.R} file to the project.}
 
