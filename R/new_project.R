@@ -1,5 +1,5 @@
 
-#' Create new project scaffolding.
+#' Create new project scaffolding
 #'
 #' Create all the scaffolding for a new project in a new directory. The scaffolding includes a \code{README.Rmd} file, different folders to hold raw data, analyses, etc, and optionally also \code{testthat} infrastructure. Also, optionally, set a private or public GitHub repo with continnuous integration (Travis-CI, GitHub Actions...).
 #'
@@ -7,16 +7,24 @@
 #' @param github Logical. Create GitHub repository? Note this requires some working infrastructure like \code{git} and a \code{GITHUB_PAT}. See instructions here \url{https://usethis.r-lib.org/articles/articles/usethis-setup.html}.
 #' @param private.repo Logical. Default is TRUE.
 #' @param ci Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), or "gh-actions" (uses GitHub Actions).
-#' @param pipe Logical. Use magrittr's pipe (%>%) in your package?
+#' @param makefile Logical. If TRUE, adds a template \code{makefile.R} file to the project.
+#' @param pipe Logical. Use magrittr's pipe in your package?
 #' @param testthat Logical. Add testthat infrastructure?
 #' @param open.project Logical. If TRUE (the default) will open the newly created Rstudio project in a new session.
 #'
 #' @return A new directory with R package structure, slightly modified.
 #' @export
+#' @details If using github = TRUE, you will be asked if you want to commit some files. Reply positively to continue.
 #'
+#' @examples
+#' \dontrun{
+#' library("template")
+#' new_project("myproject")
+#' new_project("myproject", github = TRUE, private.repo = TRUE)
+#' }
 new_project <- function(name,
                         github = FALSE, private.repo = TRUE, ci = "none",
-                        pipe = TRUE, testthat = FALSE,
+                        makefile = TRUE, pipe = TRUE, testthat = FALSE,
                         open.project = TRUE){
 
   usethis::create_package(name, open = FALSE)
@@ -39,9 +47,14 @@ new_project <- function(name,
   dir.create(file.path(name, "analyses"))
   dir.create(file.path(name, "manuscript"))
 
+  # Add makefile.R
+  if (isTRUE(makefile)) {
+    file.copy(from = system.file("makefile", "makefile.R", package = "template"),
+              to = usethis::proj_get())
+  }
 
 
-  usethis::use_build_ignore(c("analyses", "manuscript"))
+  usethis::use_build_ignore(c("analyses", "manuscript", "makefile.R"))
 
 
   if (isTRUE(github)) {
