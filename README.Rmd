@@ -62,7 +62,7 @@ There are other options you could choose, like setting up `testthat` or continuo
 
 5. Save final (clean, tidy) datasets in the `data` folder. You may write documentation for these data (see http://r-pkgs.had.co.nz/data.html#documenting-data). 
 
-6. R scripts or Rmarkdown documents used for data analyses may be placed at the `analyses` folder. The final manuscript/report may be placed at the `manuscript` folder. You could use one of the many Rmarkdown templates available out there (e.g. [rticles](https://github.com/rstudio/rticles) or [rmdTemplates](https://github.com/Pakillo/rmdTemplates)). 
+6. R scripts or Rmarkdown documents used for data analyses may be placed at the `analyses` folder. The final manuscript/report may be placed at the `manuscript` folder. You could use one of the many Rmarkdown templates available out there (e.g. [rticles](https://github.com/rstudio/rticles), [rrtools](https://github.com/benmarwick/rrtools) or [rmdTemplates](https://github.com/Pakillo/rmdTemplates)). 
 
 7. If you write custom functions, place them in the `R` folder. Document all your functions with `Roxygen` (see http://r-pkgs.had.co.nz/man.html). Write tests for your functions (see http://r-pkgs.had.co.nz/tests.html) and place them in the `tests` folder.
 
@@ -72,7 +72,7 @@ There are other options you could choose, like setting up `testthat` or continuo
 
 10. Render Rmarkdown reports using `rmarkdown::render`, and use Rstudio `Build` menu to create/update documentation, run tests, build package, etc.
 
-11. Record the exact dependencies of your project. One option is simply running `sessionInfo()` but many, more sophisticated and also better, alternatives exist. For example, `automagic::make_deps_file()` or `renv::snapshot()` will create a file recording the exact versions of all packages used, which can be used to recreate such environment in the future or in another computer. If you want to use Docker, you could use e.g. `containerit::dockerfile()`
+11. Record the exact dependencies of your project. One option is simply running `sessionInfo()` but many, more sophisticated and also better, alternatives exist. For example, `automagic::make_deps_file()` or `renv::snapshot()` will create a file recording the exact versions of all packages used, which can be used to recreate such environment in the future or in another computer. If you want to use Docker, you could use e.g. `containerit::dockerfile()` or `rrtools::use_dockerfile()`.
 
 12. Archive your repository (e.g. in Zenodo), get a DOI, and include citation information in your README.
 
@@ -93,4 +93,5 @@ There are other options you could choose, like setting up `testthat` or continuo
 * https://github.com/Reproducible-Science-Curriculum/rr-init
 * http://ropensci.github.io/reproducibility-guide/
 * https://github.com/jdblischak/r-project-workflows
+* https://github.com/benmarwick/rrtools
 
