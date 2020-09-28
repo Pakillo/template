@@ -16,10 +16,7 @@ Imports:
     usethis,
     rstudioapi
 Suggests:
-    rmdTemplates,
     testthat
 RoxygenNote: 7.1.1
-Remotes: 
-    Pakillo/rmdTemplates
 Encoding: UTF-8
     
