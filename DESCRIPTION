@@ -1,21 +1,25 @@
 Package: template
-Title: Generic template for research projects structured as R packages
-Version: 0.4.0
-Date: 2016-05-12
+Title: Generic template for research or data analysis projects structured as R packages
+Version: 0.5.0
 Authors@R: "Francisco Rodriguez-Sanchez <f.rodriguez.sanc@gmail.com> [aut, cre]"
 Description: This package works as a template for new research
     projects, under the idea of having everything (data, R scripts, functions
     and manuscript/reports) contained in the same package (a 'research compendium')
     to facilitate collaboration and promote reproducibility.
 Depends:
-    R (>= 3.1.1)
+    R (>= 3.0.0)
 License: CC0
 LazyData: true
 URL: https://github.com/Pakillo/template
 BugReports: https://github.com/Pakillo/template/issues
 Imports:
-    devtools
+    usethis,
+    rstudioapi
 Suggests:
     rmdTemplates,
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1
+Remotes: 
+    Pakillo/rmdTemplates
+Encoding: UTF-8
+    

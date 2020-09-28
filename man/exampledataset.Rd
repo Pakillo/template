@@ -4,7 +4,9 @@
 \name{exampledataset}
 \alias{exampledataset}
 \title{How to document datasets.}
-\format{A numeric vector.}
+\format{
+A numeric vector.
+}
 \source{
 This example modified from C. Boettiger's template package \url{https://github.com/cboettig/template}.
 }

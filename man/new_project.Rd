@@ -2,22 +2,49 @@
 % Please edit documentation in R/new_project.R
 \name{new_project}
 \alias{new_project}
-\title{Create new project scaffolding.}
+\title{Create new project scaffolding}
 \usage{
-new_project(name, github = FALSE, private.repo = TRUE, travis = FALSE)
+new_project(
+  name,
+  github = FALSE,
+  private.repo = TRUE,
+  ci = "none",
+  makefile = TRUE,
+  pipe = TRUE,
+  testthat = FALSE,
+  open.project = TRUE
+)
 }
 \arguments{
-\item{name}{Name of the new project. A new folder will be created with that name.}
+\item{name}{Character. Name of the new project. Could be a path, e.g. \code{"~/myRcode/newproj"}. A new folder will be created with that name.}
 
-\item{github}{Logical. Create GitHub repo? Note this requires a \code{GITHUB_PAT}. See \code{\link[devtools]{use_github}}.}
+\item{github}{Logical. Create GitHub repository? Note this requires some working infrastructure like \code{git} and a \code{GITHUB_PAT}. See instructions here \url{https://usethis.r-lib.org/articles/articles/usethis-setup.html}.}
 
 \item{private.repo}{Logical. Default is TRUE.}
 
-\item{travis}{Logical. Set Travis? If TRUE, a badge will be added automatically to README.Rmd. But the project will need to be activated at \url{https://travis-ci.org/profile}.}
+\item{ci}{Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), or "gh-actions" (uses GitHub Actions).}
+
+\item{makefile}{Logical. If TRUE, adds a template \code{makefile.R} file to the project.}
+
+\item{pipe}{Logical. Use magrittr's pipe in your package?}
+
+\item{testthat}{Logical. Add testthat infrastructure?}
+
+\item{open.project}{Logical. If TRUE (the default) will open the newly created Rstudio project in a new session.}
 }
 \value{
 A new directory with R package structure, slightly modified.
 }
 \description{
-Create all the scaffolding for a new project in a new directory. The scaffolding includes a \code{README.Rmd} file, different folders to hold raw data, analyses, etc, and \code{testthat} infrastructure. Also, optionally, set a GitHub repo and add Travis-CI.
+Create all the scaffolding for a new project in a new directory. The scaffolding includes a \code{README.Rmd} file, different folders to hold raw data, analyses, etc, and optionally also \code{testthat} infrastructure. Also, optionally, set a private or public GitHub repo with continnuous integration (Travis-CI, GitHub Actions...).
+}
+\details{
+If using github = TRUE, you will be asked if you want to commit some files. Reply positively to continue.
+}
+\examples{
+\dontrun{
+library("template")
+new_project("myproject")
+new_project("myproject", github = TRUE, private.repo = TRUE)
+}
 }
