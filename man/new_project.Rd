@@ -12,6 +12,7 @@ new_project(
   makefile = TRUE,
   pipe = TRUE,
   testthat = FALSE,
+  verbose = FALSE,
   open.project = TRUE
 )
 }
@@ -29,6 +30,8 @@ new_project(
 \item{pipe}{Logical. Use magrittr's pipe in your package?}
 
 \item{testthat}{Logical. Add testthat infrastructure?}
+
+\item{verbose}{Print verbose output in the console while creating the new project? Default is FALSE.}
 
 \item{open.project}{Logical. If TRUE (the default) will open the newly created Rstudio project in a new session.}
 }

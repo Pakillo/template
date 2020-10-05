@@ -10,6 +10,7 @@
 #' @param makefile Logical. If TRUE, adds a template \code{makefile.R} file to the project.
 #' @param pipe Logical. Use magrittr's pipe in your package?
 #' @param testthat Logical. Add testthat infrastructure?
+#' @param verbose Print verbose output in the console while creating the new project? Default is FALSE.
 #' @param open.project Logical. If TRUE (the default) will open the newly created Rstudio project in a new session.
 #'
 #' @return A new directory with R package structure, slightly modified.
@@ -25,7 +26,11 @@
 new_project <- function(name,
                         github = FALSE, private.repo = TRUE, ci = "none",
                         makefile = TRUE, pipe = TRUE, testthat = FALSE,
-                        open.project = TRUE){
+                        verbose = FALSE, open.project = TRUE){
+
+  if (!isTRUE(verbose)) {
+    options(usethis.quiet = TRUE)
+  }
 
   usethis::create_package(name, open = FALSE)
   usethis::proj_set(name, force = TRUE)
