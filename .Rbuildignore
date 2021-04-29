@@ -3,11 +3,7 @@
 ^data-raw$
 ^analyses$
 ^manuscript$
-^\.travis\.yml$
 README.Rmd
-
-^slides$
-
 
 ^_pkgdown\.yml$
 ^docs$
