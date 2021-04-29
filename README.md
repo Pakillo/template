@@ -3,8 +3,6 @@
 
 ### Generic template for data analysis projects structured as R packages
 
-[![Travis-CI Build
-Status](https://travis-ci.org/Pakillo/template.svg?branch=master)](https://travis-ci.org/Pakillo/template)
 [![HitCount since
 2020-06-14](http://hits.dwyl.com/Pakillo/template.svg)](http://hits.dwyl.com/Pakillo/template)
 
