@@ -1,32 +1,30 @@
 
 ## `template` package
 
-### Generic template for research or data analysis projects structured as R packages
+### Generic template for data analysis projects structured as R packages
 
 [![Travis-CI Build
 Status](https://travis-ci.org/Pakillo/template.svg?branch=master)](https://travis-ci.org/Pakillo/template)
-[![HitCount
-since 2020-06-14](http://hits.dwyl.com/Pakillo/template.svg)](http://hits.dwyl.com/Pakillo/template)
+[![HitCount since
+2020-06-14](http://hits.dwyl.com/Pakillo/template.svg)](http://hits.dwyl.com/Pakillo/template)
 
-[Rmarkdown](https://rmarkdown.rstudio.com) documents are great to keep
-reproducible scientific workflows: tightly integrating code, results and
-text. Yet, once we are dealing with more complicated data analysis and
-writing custom code and functions for a project, structuring it as an [R
-package](http://r-pkgs.had.co.nz/) can bring many advantages (e.g. see
-[here](http://rmflight.github.io/post/analyses-as-packages/) and
-[here](https://github.com/ropensci/rrrpkg), or read [Marwick et
-al.](https://doi.org/10.7287/peerj.preprints.3192v2), but see also
-[here](https://milesmcbain.xyz/posts/an-okay-idea/) for counterpoints).
+The `template` package automates creation of new projects with all the
+necessary scaffolding: different folders for data, scripts, and
+functions, plus (optionally) additional files required for an R package
+structure. It can simultaneously create and synchronise a new repository
+on GitHub so one can start working immediately.
 
-Hence this package works as a template for new research or data analysis
-projects, with the idea of having everything (data, R scripts,
-functions, and manuscript reporting results) self-contained in the same
-package (a “research compendium”) to facilitate collaboration and
-promote reproducibility.
-
-A short presentation introducing this approach on ‘Structuring data
-analysis projects as R packages’ is available here:
-<https://doi.org/10.6084/m9.figshare.12479984.v1>
+`template` can create both projects with or without R package structure.
+Structuring data analysis projects as R packages (a.k.a. “research
+compendia”) can bring some advantages (e.g. see [this
+blogpost](http://rmflight.github.io/post/analyses-as-packages/), [this
+repo](https://github.com/ropensci/rrrpkg),
+[these](https://inundata.org/talks/rstd19/#/) and [these
+slides](https://doi.org/10.6084/m9.figshare.12479984.v1) or read
+[Marwick et al.](https://doi.org/10.7287/peerj.preprints.3192v2)). But
+there are also [good
+reasons](https://milesmcbain.xyz/posts/an-okay-idea/) why an R package
+structure may not always be needed or convenient.
 
 ### Installation
 
@@ -51,8 +49,11 @@ to start a new project about tree growth, just use:
 new_project("treegrowth")
 ```
 
-If you want to create a GitHub repository for the project at the same
-time, use instead:
+This will create a new Rstudio project with this structure:
+
+<img src="files.png" width="218" />
+
+You can create a GitHub repository for the project at the same time:
 
 ``` r
 new_project("treegrowth", github = TRUE, private.repo = FALSE)
@@ -64,8 +65,8 @@ explained in
 <https://usethis.r-lib.org/articles/articles/usethis-setup.html>.
 
 There are other options you could choose, like setting up `testthat` or
-continuous integration (Travis-CI, GitHub actions…). See `?new_project`
-for all options.
+continuous integration (Travis-CI, GitHub Actions…). Or skip R package
+structure altogether. See `?new_project` for all options.
 
 ### Developing the project
 
@@ -104,7 +105,6 @@ for all options.
     the namespace.
 
 7.  I recommend using an advanced tool like
-    [`drake`](https://github.com/ropensci/drake) or
     [`targets`](https://github.com/wlandau/targets) to manage your
     project workflow. A simpler alternative might be writing a
     `makefile` or master script to organise and execute all parts of the
@@ -129,20 +129,20 @@ for all options.
 
 ### Thanks to:
 
-  - Carl Boettiger and his [template
+-   Carl Boettiger and his [template
     package](https://github.com/cboettig/template)
-  - Jeff Hollister and his
+-   Jeff Hollister and his
     [manuscriptPackage](https://github.com/jhollist/manuscriptPackage)
-  - Robert Flight:
+-   Robert Flight:
     <http://rmflight.github.io/posts/2014/07/analyses_as_packages.html>
-  - Hadley Wickham: <http://r-pkgs.had.co.nz/>
-  - Yihui Xie: <http://yihui.name/knitr/>
-  - Rstudio
+-   Hadley Wickham: <http://r-pkgs.had.co.nz/>
+-   Yihui Xie: <http://yihui.name/knitr/>
+-   Rstudio
 
 ### Links
 
-  - <https://github.com/ropensci/rrrpkg>
-  - <https://github.com/Reproducible-Science-Curriculum/rr-init>
-  - <http://ropensci.github.io/reproducibility-guide/>
-  - <https://github.com/jdblischak/r-project-workflows>
-  - <https://github.com/benmarwick/rrtools>
+-   <https://github.com/ropensci/rrrpkg>
+-   <https://github.com/Reproducible-Science-Curriculum/rr-init>
+-   <http://ropensci.github.io/reproducibility-guide/>
+-   <https://github.com/jdblischak/r-project-workflows>
+-   <https://github.com/benmarwick/rrtools>
