@@ -5,6 +5,7 @@
 #'
 #' @param name Character. Name of the new project. A new folder will be created with that name.
 #' @param path Character. Path where the new project should be created (default is the current working directory).
+#' @param package Logical. Create package structure or a simple project?
 #' @param github Logical. Create GitHub repository? Note this requires some working infrastructure like \code{git} and a \code{GITHUB_PAT}. See instructions here \url{https://usethis.r-lib.org/articles/articles/usethis-setup.html}.
 #' @param private.repo Logical. Default is TRUE.
 #' @param ci Logical. Use continuous integration in your GitHub repository? Current options are "none" (default), "travis" (uses Travis-CI), "circle" (uses Circle-CI), "appveyor" (uses AppVeyor), or "gh-actions" (uses GitHub Actions).
@@ -25,6 +26,7 @@
 #' new_project("myproject", github = TRUE, private.repo = TRUE)
 #' }
 new_project <- function(name, path = ".",
+                        package = TRUE,
                         github = FALSE, private.repo = TRUE, ci = "none",
                         makefile = TRUE, pipe = TRUE, testthat = FALSE,
                         verbose = FALSE, open.project = TRUE){
@@ -33,23 +35,18 @@ new_project <- function(name, path = ".",
     options(usethis.quiet = TRUE)
   }
 
-  usethis::create_package(file.path(path, name), open = FALSE)
+  if (isTRUE(package)) {
+    usethis::create_package(file.path(path, name), open = FALSE)
+  } else {
+    usethis::create_project(file.path(path, name), open = FALSE)
+  }
+
   # usethis::proj_set(name, force = TRUE)
   usethis::local_project(path = file.path(path, name), force = TRUE)
 
-  usethis::use_package_doc(open = FALSE)
+  # Add folders
   usethis::use_readme_rmd(open = FALSE)
   usethis::use_data_raw(open = FALSE)
-
-  if (isTRUE(pipe)) {
-    usethis::use_pipe()
-  }
-
-  if (isTRUE(testthat)) {
-    usethis::use_testthat()
-  }
-
-  # Add folders
   dir.create("data")
   dir.create("analyses")
   dir.create("manuscript")
@@ -61,7 +58,21 @@ new_project <- function(name, path = ".",
   }
 
 
-  usethis::use_build_ignore(c("analyses", "manuscript", "makefile.R"))
+  if (isTRUE(package)) {
+
+    usethis::use_package_doc(open = FALSE)
+
+    if (isTRUE(pipe)) {
+      usethis::use_pipe()
+    }
+
+    if (isTRUE(testthat)) {
+      usethis::use_testthat()
+    }
+
+    usethis::use_build_ignore(c("analyses", "manuscript", "makefile.R"))
+
+  }
 
 
   if (isTRUE(github)) {

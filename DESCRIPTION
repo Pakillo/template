@@ -1,6 +1,6 @@
 Package: template
 Title: Generic template for data analysis projects structured as R packages
-Version: 0.5.1
+Version: 0.5.2
 Authors@R: c(
     person("Francisco", "Rodriguez-Sanchez", , "f.rodriguez.sanc@gmail.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-7981-1599"))

@@ -7,6 +7,7 @@
 new_project(
   name,
   path = ".",
+  package = TRUE,
   github = FALSE,
   private.repo = TRUE,
   ci = "none",
@@ -21,6 +22,8 @@ new_project(
 \item{name}{Character. Name of the new project. A new folder will be created with that name.}
 
 \item{path}{Character. Path where the new project should be created (default is the current working directory).}
+
+\item{package}{Logical. Create package structure or a simple project?}
 
 \item{github}{Logical. Create GitHub repository? Note this requires some working infrastructure like \code{git} and a \code{GITHUB_PAT}. See instructions here \url{https://usethis.r-lib.org/articles/articles/usethis-setup.html}.}
 
