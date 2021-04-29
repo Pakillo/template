@@ -3,8 +3,13 @@
 
 ### Generic template for data analysis projects structured as R packages
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/Pakillo/template/workflows/R-CMD-check/badge.svg)](https://github.com/Pakillo/template/actions)
+
 [![HitCount since
 2020-06-14](http://hits.dwyl.com/Pakillo/template.svg)](http://hits.dwyl.com/Pakillo/template)
+<!-- badges: end -->
 
 The `template` package automates creation of new projects with all the
 necessary scaffolding: different folders for data, scripts, and
