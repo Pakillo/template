@@ -1,11 +1,11 @@
 Package: template
-Title: Generic template for research or data analysis projects structured as R packages
-Version: 0.5.0
+Title: Generic template for data analysis projects structured as R packages
+Version: 0.5.1
 Authors@R: c(
     person("Francisco", "Rodriguez-Sanchez", , "f.rodriguez.sanc@gmail.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-7981-1599"))
     )
-Description: This package works as a template for new research
+Description: This package works as a template for new research or data analysis
     projects, under the idea of having everything (data, R scripts, functions
     and manuscript/reports) contained in the same package (a 'research compendium')
     to facilitate collaboration and promote reproducibility.

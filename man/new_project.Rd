@@ -6,6 +6,7 @@
 \usage{
 new_project(
   name,
+  path = ".",
   github = FALSE,
   private.repo = TRUE,
   ci = "none",
@@ -17,7 +18,9 @@ new_project(
 )
 }
 \arguments{
-\item{name}{Character. Name of the new project. Could be a path, e.g. \code{"~/myRcode/newproj"}. A new folder will be created with that name.}
+\item{name}{Character. Name of the new project. A new folder will be created with that name.}
+
+\item{path}{Character. Path where the new project should be created (default is the current working directory).}
 
 \item{github}{Logical. Create GitHub repository? Note this requires some working infrastructure like \code{git} and a \code{GITHUB_PAT}. See instructions here \url{https://usethis.r-lib.org/articles/articles/usethis-setup.html}.}
 
