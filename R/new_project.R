@@ -33,7 +33,8 @@ new_project <- function(name,
   }
 
   usethis::create_package(name, open = FALSE)
-  usethis::proj_set(name, force = TRUE)
+  # usethis::proj_set(name, force = TRUE)
+  usethis::local_project(path = name, force = TRUE)
 
   usethis::use_package_doc(open = FALSE)
   usethis::use_readme_rmd(open = FALSE)
