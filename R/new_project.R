@@ -46,7 +46,11 @@ new_project <- function(name, path = ".",
 
   # Add folders
   usethis::use_readme_rmd(open = FALSE)
-  usethis::use_data_raw(open = FALSE)
+  if (isTRUE(package)) {
+    usethis::use_data_raw(open = FALSE)
+  } else {
+    dir.create("data-raw")
+  }
   dir.create("data")
   dir.create("analyses")
   dir.create("manuscript")
